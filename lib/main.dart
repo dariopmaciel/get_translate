@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_translate/core/translation/translation_keys.dart';
 import 'package:get_translate/pages/home_page.dart';
 
 void main() {
@@ -12,6 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
+      locale: const Locale('pt', 'BR'),
+      fallbackLocale: const Locale('pt', 'BR'),
+      //! >>>>>>>>>>>>>>>CHAVES DE TRADUÇÂO
+      translations: TranslationKeys(),
       theme: ThemeData(
         primaryColor: Colors.blue,
         useMaterial3: false,
