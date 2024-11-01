@@ -3,7 +3,15 @@ import 'package:get/get.dart';
 import 'package:get_translate/core/translation/translation_keys.dart';
 import 'package:get_translate/pages/home_page.dart';
 
-void main() {
+//!carregamento
+late TranslationKeys translationKeys;
+
+Future<void> main() async {
+  //!carregamento
+  WidgetsFlutterBinding.ensureInitialized();
+  translationKeys = TranslationKeys();
+  await translationKeys.load();
+  //até aqui em cima
   runApp(const MyApp());
 }
 
@@ -18,7 +26,9 @@ class MyApp extends StatelessWidget {
       // locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('pt', 'BR'),
       //! >>>>>>>>>>>>>>>CHAVES DE TRADUÇÂO
-      translations: TranslationKeys(),
+      // translations: TranslationKeys(),
+      //!agora somente a variavel
+      translations: translationKeys,
       theme: ThemeData(
         primaryColor: Colors.blue,
         useMaterial3: false,
